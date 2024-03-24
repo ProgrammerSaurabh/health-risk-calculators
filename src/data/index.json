@@ -1,0 +1,505 @@
+{
+  "calculators": [
+    {
+      "name": "Body Mass Index (BMI)",
+      "id": "bmi",
+      "resultText": "Your BMI is {result}",
+      "description": "Body Mass Index (BMI) is a widely used measure to assess an individual's body weight relative to their height. It provides a simple yet effective indicator of whether a person falls within a healthy weight range. BMI is calculated by dividing a person's weight in kilograms by the square of their height in meters. The resulting number categorizes individuals into different weight categories: underweight, normal weight, overweight, or obese. While BMI is valuable as a screening tool for assessing general health risks associated with weight, it does have limitations. It doesn't directly measure body fat percentage or account for factors like muscle mass, bone density, or distribution of fat, which can affect its accuracy in certain populations, such as athletes or individuals with higher muscle mass. Nonetheless, BMI remains a widely used and helpful tool for identifying potential weight-related health risks and guiding discussions about lifestyle changes and preventive measures.",
+      "interpretations": [
+        {
+          "min": 0,
+          "max": 18.4,
+          "risk": "Underweight BMI",
+          "value": "Underweight BMI"
+        },
+        {
+          "min": 18.5,
+          "max": 24.9,
+          "risk": "Healthy BMI",
+          "value": "Healthy BMI"
+        },
+        {
+          "min": 25,
+          "max": 30,
+          "risk": "Overweight BMI",
+          "value": "Overweight BMI"
+        },
+        {
+          "min": 31,
+          "max": 100000,
+          "risk": "Obese BMI",
+          "value": "Obese BMI"
+        }
+      ],
+      "fields": [
+        {
+          "label": "Age (yrs)",
+          "type": "input",
+          "placeholder": "Eg. 57",
+          "name": "age"
+        },
+        {
+          "label": "Gender",
+          "type": "select",
+          "options": [
+            {
+              "label": "Male",
+              "value": "male"
+            },
+            {
+              "label": "Female",
+              "value": "female"
+            }
+          ],
+          "name": "gender"
+        },
+        {
+          "label": "Weight (kg)",
+          "type": "input",
+          "placeholder": "Eg. 65",
+          "name": "weight"
+        },
+        {
+          "label": "Height (cm)",
+          "type": "input",
+          "placeholder": "Eg. 157",
+          "name": "height"
+        }
+      ],
+      "formula": "Number({weight}/(({height}/100)*({height}/100))).toFixed(2)"
+    },
+    {
+      "name": "Health failure",
+      "id": "health-failure",
+      "resultText": "",
+      "interpretations": [
+        {
+          "min": -20,
+          "max": 2,
+          "risk": "Low HF Risk Group 5-yr HF Risk <5%",
+          "value": "Low HF Risk Group 5-yr HF Risk <5%"
+        },
+        {
+          "min": 3,
+          "max": 5,
+          "risk": "Average HF Risk Group 5-yr HF Risk 5 to 10%",
+          "value": "Average HF Risk Group 5-yr HF Risk 5 to 10%"
+        },
+        {
+          "min": 6,
+          "max": 9,
+          "risk": "High HF Risk Group 5-yr HF Risk 10 to 20%",
+          "value": "High HF Risk Group 5-yr HF Risk 10 to 20%"
+        },
+        {
+          "min": 10,
+          "max": 100,
+          "risk": "Very High HF Risk Group 5-yr HF Risk >20%",
+          "value": "Very High HF Risk Group 5-yr HF Risk >20%"
+        }
+      ],
+      "description": "Heart failure, also known as congestive heart failure, is a chronic condition characterized by the heart's inability to pump blood effectively to meet the body's needs. This leads to a buildup of fluid in the lungs and other parts of the body, causing symptoms such as shortness of breath, fatigue, swelling in the legs and abdomen, and difficulty exercising. Heart failure can result from various underlying conditions that weaken or damage the heart muscle, including coronary artery disease, high blood pressure, diabetes, and previous heart attacks. Heart failure is typically classified based on the heart's ejection fraction—the percentage of blood pumped out of the heart with each contraction. Heart failure with reduced ejection fraction (HFrEF) occurs when the heart's pumping ability is reduced, while heart failure with preserved ejection fraction (HFpEF) occurs when the heart's pumping function is relatively preserved but the heart muscle is stiff and less compliant. Management of heart failure involves lifestyle modifications, medication therapy, and, in some cases, surgical interventions such as implantation of devices like pacemakers or defibrillators. Regular monitoring and adherence to treatment plans are crucial in managing heart failure and improving quality of life for affected individuals.",
+      "fields": [
+        {
+          "label": "Gender",
+          "type": "select",
+          "options": [
+            {
+              "label": "Male",
+              "value": "male"
+            },
+            {
+              "label": "Female",
+              "value": "female"
+            }
+          ],
+          "name": "gender"
+        },
+        {
+          "label": "Age (yrs)",
+          "type": "input",
+          "placeholder": "Eg. 57",
+          "name": "age"
+        },
+        {
+          "label": "Heart rate (bpm)",
+          "type": "input",
+          "placeholder": "Eg. 80",
+          "name": "heartRate"
+        },
+        {
+          "label": "Fasting Glucose (mg/dl)",
+          "type": "input",
+          "placeholder": "Eg. 150",
+          "name": "glucose"
+        },
+        {
+          "label": "Creatinine (mg/dl)",
+          "type": "input",
+          "placeholder": "Eg. 1",
+          "name": "creatinine"
+        },
+        {
+          "label": "Albumim (g/dl)",
+          "type": "input",
+          "placeholder": "Eg. 4",
+          "name": "albumin"
+        },
+        {
+          "label": "Systolic Blood Pressure (mmHg)",
+          "type": "input",
+          "placeholder": "Eg. 130",
+          "name": "systolic"
+        },
+        {
+          "label": "Left Ventricular Hypertrophy?",
+          "type": "select",
+          "options": [
+            {
+              "label": "No",
+              "value": "No"
+            },
+            {
+              "label": "Yes",
+              "value": "Yes"
+            }
+          ],
+          "name": "lvh"
+        },
+        {
+          "label": "Coronary Artery Disease?",
+          "type": "select",
+          "options": [
+            {
+              "label": "No",
+              "value": "No"
+            },
+            {
+              "label": "Possible",
+              "value": "Possible"
+            },
+            {
+              "label": "Definite",
+              "value": "Definite"
+            }
+          ],
+          "name": "cad"
+        },
+        {
+          "label": "Smoking?",
+          "type": "select",
+          "options": [
+            {
+              "label": "Never",
+              "value": "Never"
+            },
+            {
+              "label": "Past",
+              "value": "Past"
+            },
+            {
+              "label": "Current",
+              "value": "Current"
+            }
+          ],
+          "name": "smoking"
+        }
+      ],
+      "formula": "(function(){var dob_systolic_bp = 130;var dob_heart_rate = 80;var dob_fasting_glocuse = 150;var dob_cretinine = 1;var dob_albumin = 4;var points = 0;var final_systolic_bp = snapFive(dob_systolic_bp,90,200,true,false);var final_fasting_glocuse = snapFiveOne(dob_fasting_glocuse);var final_heart_rate = snapFiveOne(dob_heart_rate);var final_cretinine = snapOneOne(dob_cretinine);var final_albumin = snapOne(dob_albumin, 0.7, 2.3, true,false);function snapFiveOne(x){var snap = 5;var base = x / snap;var diff = x % snap;if (diff > (snap/2)){x = Math.ceil(x + (snap - diff));}else{x = Math.floor(x - diff);}return x;}function snapFive(x, min, max, inclusive_min, inclusive_max){if (inclusive_min){if (x <= min){return x;}}else {if (x < min) {return x;}}if (inclusive_max){if (x >= max) {return x;}}else {if (x > max) {return x;}}var snap = 5;var base = x / snap;var diff = x % snap;if (diff > (snap/2)){x = Math.ceil(x + (snap - diff));}else{x = Math.floor(x - diff);}return x;}function snapOneOne(x){var snap = 1;x = x * 10;var base = x / snap;var diff = x % snap;if (diff > (snap/2)){x = Math.ceil(x + (snap - diff));}else{x = Math.floor(x - diff);}x = x / 10;return x;}function snapOne(x, min, max, inclusive_min, inclusive_max){if (inclusive_min){if (x <= min){return x;}}else {if (x < min) {return x;}}if (inclusive_max){if (x >= max) {return x;}}else {if (x > max) {return x;}}var snap = 1;x = x * 10;var base = x / snap;var diff = x % snap;if (diff > (snap/2)){x = Math.ceil(x + (snap - diff));}else{x = Math.floor(x - diff);}x = x / 10;return x;}if ('No' == 'Possible'){c = points + 2;}if ('No' == 'Definite'){points = points + 5;}if ('Never' == 'Past'){points = points + 1;}if ('Never' == 'Current'){points = points + 4;}if('No' == 'Yes'){points = points + 2;}if (25 <=71){points = points - 1;}if (25 >=72 && 25 <=75){points = points + 0;}if (25 >=76 && 25 <=78){points = points + 1;}if (25 >=79){points = points + 2;}if (final_albumin <= 3.2){points = points + 3;}if (final_albumin >= 3.3 && final_albumin <= 3.5){points = points + 2;}if (final_albumin >= 3.6 && final_albumin <= 3.8){points = points + 1;}if (final_albumin >= 3.9 && final_albumin <= 4.1){points = points + 0;}if (final_albumin >= 4.2 && final_albumin <= 4.4){points = points - 1;}if (final_albumin >= 4.5 && final_albumin <= 4.7){points = points - 2;}if (final_albumin >= 4.8){points = points - 3;}if (final_cretinine >= 2.4){points = points + 6;}if (final_cretinine >= 1.9 && final_cretinine <= 2.3){points = points + 3;}if (final_cretinine >= 1.5 && final_cretinine <= 1.8){points = points + 2;}if (final_cretinine >= 1.2 && final_cretinine <= 1.4){points = points + 1;}if (final_cretinine >= 1.0 && final_cretinine <= 1.1){points = points + 0;}if (final_cretinine >= 0.8 && final_cretinine <= 0.9){points = points - 1;}if (final_cretinine <= 0.7){points = points - 2;}if (final_heart_rate <= 50){points = points - 2;}if (final_heart_rate >= 55 && final_heart_rate <=60){points = points - 1;}if (final_heart_rate >= 65 && final_heart_rate <=70){points = points + 0;}if (final_heart_rate >= 75 && final_heart_rate <=80){points = points + 1;}if (final_heart_rate >= 85 && final_heart_rate <=90){points = points + 2;}if (final_heart_rate >= 95){points = points + 3;}if (final_fasting_glocuse >= 130 && final_fasting_glocuse <=170){points = points + 1;}if (final_fasting_glocuse >= 85 && final_fasting_glocuse <=125){points = points + 0;}if (final_fasting_glocuse >= 175 && final_fasting_glocuse <=220){points = points + 2;}if (final_fasting_glocuse >= 225 && final_fasting_glocuse <=265){points = points + 3;}if (final_fasting_glocuse >= 270){points = points + 5;}if (final_fasting_glocuse <=80){points = points - 1;}if (final_systolic_bp <= 90){points = points - 4;}if (final_systolic_bp >= 201){points = points + 6;}if (final_systolic_bp >= 130 && final_systolic_bp <= 140){points = points + 0;}if (final_systolic_bp >= 95 && final_systolic_bp <= 100){points = points - 3;}if (final_systolic_bp >= 105 && final_systolic_bp <= 115){points = points - 2;}if (final_systolic_bp >= 120 && final_systolic_bp <= 125){points = points - 1;}if (final_systolic_bp >= 145 && final_systolic_bp <= 150){points = points + 1;}if (final_systolic_bp >= 155 && final_systolic_bp <= 165){points = points + 2;}if (final_systolic_bp >= 170 && final_systolic_bp <= 175){points = points + 3;}if (final_systolic_bp >= 180 && final_systolic_bp <= 190){points = points + 4;}if (final_systolic_bp >= 195 && final_systolic_bp <= 200){points = points + 5;}return points;})()"
+    },
+    {
+      "name": "Atherosclerotic Cardiovascular Disease (ASCVD) Risk Estimator",
+      "id": "atherosclerotic-cardiovascular-disease",
+      "interpretations": [
+        {
+          "min": -100,
+          "max": 7.4,
+          "risk": "Low Risk Your stroke risk is categorised as Low as score is < 7.5%. Kindly consult your doctor for appropriate guidance and timely treatment interventions.",
+          "value": "Low Risk Your stroke risk is categorised as Low as score is < 7.5%. Kindly consult your doctor for appropriate guidance and timely treatment interventions."
+        },
+        {
+          "min": 7.5,
+          "max": 9.49,
+          "risk": "Low Risk Your stroke risk is categorised as High as score is > 7.5%. Kindly consult your doctor for appropriate guidance and timely treatment interventions.",
+          "value": "Low Risk Your stroke risk is categorised as High as score is > 7.5%. Kindly consult your doctor for appropriate guidance and timely treatment interventions."
+        },
+        {
+          "min": 9.5,
+          "max": 19.49,
+          "risk": "Intermediate Risk Your stroke risk is categorised as High as score is > 7.5%. Kindly consult your doctor for appropriate guidance and timely treatment interventions.",
+          "value": "Intermediate Risk Your stroke risk is categorised as High as score is > 7.5%. Kindly consult your doctor for appropriate guidance and timely treatment interventions."
+        },
+        {
+          "min": 19.5,
+          "max": 1000,
+          "risk": "High Risk Your stroke risk is categorised as High as score is > 7.5%. Kindly consult your doctor for appropriate guidance and timely treatment interventions.",
+          "value": "High Risk Your stroke risk is categorised as High as score is > 7.5%. Kindly consult your doctor for appropriate guidance and timely treatment interventions."
+        }
+      ],
+      "fields": [
+        {
+          "label": "Gender",
+          "type": "select",
+          "options": [
+            {
+              "label": "Male",
+              "value": "male"
+            },
+            {
+              "label": "Female",
+              "value": "female"
+            }
+          ],
+          "name": "gender"
+        },
+        {
+          "label": "Age (yrs)",
+          "type": "input",
+          "placeholder": "Eg. 57",
+          "name": "age"
+        },
+        {
+          "label": "Total Cholesterol (mg/dL)",
+          "type": "input",
+          "placeholder": "Norm:150-200 (mg/dL)",
+          "name": "totalChol"
+        },
+        {
+          "label": "HDL Cholesterol (mg/dL)",
+          "type": "input",
+          "placeholder": "Norm:40-59 (mg/dL)",
+          "name": "hdlChol"
+        },
+        {
+          "label": "Systolic Blood Pressure (mmHg)",
+          "type": "input",
+          "placeholder": "Eg. 130",
+          "name": "systolic"
+        },
+        {
+          "label": "Are you on any medication to treat high blood pressure?",
+          "type": "select",
+          "options": [
+            {
+              "label": "No",
+              "value": 0
+            },
+            {
+              "label": "Yes",
+              "value": 1
+            }
+          ],
+          "name": "medHBP"
+        },
+        {
+          "label": "Diabetes",
+          "type": "select",
+          "options": [
+            {
+              "label": "No",
+              "value": 0
+            },
+            {
+              "label": "Yes",
+              "value": 1
+            }
+          ],
+          "name": "diabetes"
+        },
+        {
+          "label": "Smoking?",
+          "type": "select",
+          "options": [
+            {
+              "label": "Never",
+              "value": "Never"
+            },
+            {
+              "label": "Past",
+              "value": "Past"
+            },
+            {
+              "label": "Current",
+              "value": "Current"
+            }
+          ],
+          "name": "smoking"
+        }
+      ],
+      "resultText": "",
+      "description": "The Atherosclerotic Cardiovascular Disease (ASCVD) Risk Estimator is a vital tool used in clinical practice to assess an individual's 10-year risk of developing atherosclerotic cardiovascular disease, which includes conditions such as coronary heart disease (CHD) and stroke. This estimator integrates various risk factors such as age, gender, total cholesterol, high-density lipoprotein (HDL) cholesterol, systolic blood pressure, smoking status, and diabetes status to calculate the likelihood of experiencing a cardiovascular event within a specified timeframe. By inputting these factors into the ASCVD Risk Estimator, healthcare providers can generate a personalized risk score, aiding in informed decision-making regarding preventive interventions such as lifestyle modifications, lipid-lowering therapy, blood pressure management, and aspirin therapy. This risk assessment tool plays a crucial role in identifying individuals at higher risk for cardiovascular events, enabling early intervention strategies to reduce the burden of cardiovascular disease and improve patient outcomes.",
+      "formula": "(function(){var result; var maleAgeFactor = 3.06117; var maleTotalCholFactor = 1.1237; var maleHDLholFactor = -0.93263; var maleAvgRisk = 23.9802; var maleRiskPeriodFactor = 0.88936; var femaleAgeFactor = 2.32888; var femaleTotalCholFactor = 1.20904; var femaleHDLholFactor = -0.70833; var RiskFactors = 0.0; var SysBPFactor = 0.0; var smoker_val = 0.0; var diabaties_val = 0.0; var medication_val = 0.0; var totalCal = 0.0; var hdlCal = 0.0; var finalRisk = 0.0; var ageCal = 0.0; var bpCal = 0.0; var sdm = 0.0; var powerExp = 0.0; var riskFactor = 0.0; var res = 0.0; var Risk = 0.0; var femaleAvgRisk = 26.1931; if ('{gender}' == 'male') { if ({medHBP} == 1) { medication_val = 1.99881; } else { medication_val = 1.93303; } if ('{smoking}' == 'Current') { smoker_val = 0.65451; } else { smoker_val = 0.0; } if ({diabetes} == 1) { diabaties_val = 0.57367; } else { diabaties_val = 0.0; } totalCal = Math.log({totalChol}) * maleTotalCholFactor; hdlCal = Math.log({hdlChol}) * maleHDLholFactor; ageCal = Math.log({age}) * maleAgeFactor; bpCal = Math.log({systolic}) * medication_val; sdm = smoker_val + diabaties_val - maleAvgRisk; RiskFactors = ageCal + totalCal + hdlCal + bpCal + sdm; powerExp = Math.exp(RiskFactors); riskFactor = Math.pow(0.88936, powerExp); Risk = 1 - riskFactor; finalRisk = Risk * 100; var finalResult = Math.fround(finalRisk * 100) / 100; return finalResult; } else { if ({medHBP} == 1) { medication_val = 2.82263; } else { medication_val = 1.93303; } if ('{smoking}' == 'Current') { smoker_val = 0.52873; } else { smoker_val = 0.0; } if ({diabetes} == 1) { diabaties_val = 0.69154; } else { diabaties_val = 0.0; } totalCal = Math.log({totalChol}) * femaleTotalCholFactor; hdlCal = Math.log({hdlChol}) * femaleHDLholFactor; ageCal = Math.log({age}) * femaleAgeFactor; bpCal = Math.log({systolic}) * medication_val; sdm = smoker_val + diabaties_val - femaleAvgRisk; RiskFactors = ageCal + totalCal + hdlCal + bpCal + sdm; powerExp = Math.exp(RiskFactors); riskFactor = Math.pow(0.95012, powerExp); Risk = 1 - riskFactor; finalRisk = Risk * 100; var finalResult = Math.fround(finalRisk * 100) / 100; return finalResult; } var finalResult = Math.fround(finalRisk * 100) / 100; return finalResult;})()"
+    },
+    {
+      "name": "Framingham Risk Score (for Coronary Heart Disease)",
+      "id": "framingham-risk-score",
+      "resultText": "",
+      "description": "The Framingham Risk Score (FRS) for Coronary Heart Disease (CHD) is a widely used tool for estimating an individual's 10-year risk of developing coronary heart disease. Developed based on data from the Framingham Heart Study, this risk assessment incorporates several key factors such as age, gender, total cholesterol, HDL cholesterol, smoking status, and systolic blood pressure. By inputting these variables into the FRS algorithm, healthcare professionals can calculate a patient's risk percentage, which indicates the likelihood of experiencing a heart attack or coronary event within the next decade. The FRS serves as a valuable aid in clinical decision-making, helping healthcare providers identify high-risk individuals who may benefit from lifestyle interventions, cholesterol-lowering medication, blood pressure management, and other preventive measures. Regular use of the Framingham Risk Score facilitates early detection and targeted intervention, thereby reducing the burden of coronary heart disease and its associated complications."
+    },
+    {
+      "name": "Revised Cardiac Risk Index (RCRI)",
+      "id": "revised-cardiac-risk-index",
+      "resultText": "",
+      "description": "The Revised Cardiac Risk Index (RCRI), also known as the Lee Revised Cardiac Risk Index, is a tool used to assess the risk of cardiac complications following non-cardiac surgery. Developed by Dr. Don Poldermans and colleagues, the RCRI helps clinicians identify patients at higher risk for adverse cardiovascular events such as myocardial infarction, cardiac arrest, or heart failure post-surgery. The RCRI consists of six clinical predictors: high-risk surgery, history of ischemic heart disease, history of heart failure, history of stroke, preoperative treatment with insulin, and preoperative serum creatinine level. Each predictor is assigned a certain number of points, with higher scores indicating a greater risk of cardiac complications. By summing up the points corresponding to each predictor, clinicians can estimate a patient's overall cardiac risk. The RCRI aids clinicians in risk stratification, guiding preoperative optimization and management strategies to reduce the likelihood of postoperative cardiac events and improve patient outcomes. It serves as a valuable tool in perioperative care, facilitating informed decision-making and personalized care for surgical patients."
+    },
+    {
+      "name": "Glasgow Coma Scale (GCS)",
+      "id": "glasgow-coma-scale",
+      "resultText": "",
+      "description": "The Glasgow Coma Scale (GCS) is a neurological assessment tool used to evaluate a patient's level of consciousness following a brain injury or other neurological conditions. It consists of three components: eye opening response, verbal response, and motor response, each scored on a scale from 1 to 4 or 6, depending on the specific response elicited. The scores from each component are then summed to provide an overall GCS score ranging from 3 to 15. A higher score indicates a higher level of consciousness and neurological function. The GCS helps healthcare providers quickly assess and monitor changes in a patient's neurological status, guiding treatment decisions and determining the severity of brain injury. It is commonly used in emergency departments, intensive care units, and trauma settings. The GCS is valuable for communication between healthcare providers and serves as a prognostic indicator for outcomes such as recovery and mortality in patients with brain injuries."
+    },
+    {
+      "name": "Dietary Inflammatory Index (DII)",
+      "id": "dietary-inflamatory-index",
+      "resultText": "",
+      "description": "The Dietary Inflammatory Index (DII) is a tool used to assess the inflammatory potential of an individual's diet. It quantifies the overall inflammatory effect of various dietary components consumed by an individual. The DII is based on extensive literature review and assigns anti-inflammatory scores to certain nutrients and foods while assigning pro-inflammatory scores to others. By summing up these scores, an overall DII score is obtained for an individual's diet. A higher positive score indicates a more pro-inflammatory diet, while a lower or negative score suggests a more anti-inflammatory diet. Research suggests that diets with a higher inflammatory potential may be associated with an increased risk of chronic inflammatory diseases such as cardiovascular disease, type 2 diabetes, obesity, and certain cancers. Therefore, the DII serves as a valuable tool in nutritional research and clinical practice to evaluate dietary patterns and their potential impact on inflammation and health outcomes."
+    },
+    {
+      "name": "Estimated Glomerular Filtration Rate (eGFR)",
+      "id": "estimated-glomerular-filtration-rate",
+      "resultText": "",
+      "description": "The Estimated Glomerular Filtration Rate (eGFR) is a measure used in medicine to assess kidney function by estimating the rate at which the kidneys filter blood. It is calculated based on serum creatinine levels, age, gender, and sometimes race. The eGFR is expressed in milliliters per minute per 1.73 square meters (mL/min/1.73m²), which adjusts for variations in body surface area. A lower eGFR indicates poorer kidney function and may suggest the presence of kidney disease. eGFR is crucial in diagnosing and monitoring various kidney conditions, including chronic kidney disease (CKD), acute kidney injury, and renal impairment due to other health issues. Clinicians use eGFR results to guide treatment decisions, such as adjusting medication dosages, implementing lifestyle changes, or considering referrals to nephrology specialists for further evaluation and management. Regular monitoring of eGFR helps in early detection of kidney dysfunction and facilitates timely interventions to slow disease progression and minimize complications."
+    },
+    {
+      "name": "Fracture Risk Assessment Tool (FRAX)",
+      "id": "fracture-risk-assessment-tool",
+      "resultText": "",
+      "description": "The Fracture Risk Assessment Tool (FRAX) is a clinically validated tool used to estimate an individual's 10-year risk of experiencing a major osteoporotic fracture (including hip, spine, forearm, or shoulder fractures) or hip fracture specifically. FRAX integrates clinical risk factors such as age, gender, body mass index (BMI), previous fracture history, parental hip fracture history, current smoking status, glucocorticoid use, rheumatoid arthritis, alcohol intake, and secondary osteoporosis into its algorithm. Additionally, FRAX incorporates bone mineral density (BMD) at the femoral neck if available, although it can also be used without BMD. By combining these factors, FRAX provides a personalized risk assessment that helps healthcare providers identify individuals at higher risk for osteoporotic fractures, allowing for targeted interventions such as lifestyle modifications, pharmacotherapy, and bone density monitoring. This tool aids in clinical decision-making regarding fracture prevention strategies, ultimately aiming to reduce the burden of osteoporotic fractures and their associated morbidity and mortality."
+    },
+    {
+      "name": "Osteoporosis Risk Assessment Tool (OST)",
+      "id": "osteoporosis-risk-assessment-tool",
+      "resultText": "",
+      "description": "The Osteoporosis Risk Assessment Tool (OST) is a clinical instrument used to evaluate an individual's risk of developing osteoporosis and experiencing fractures. This tool incorporates various risk factors such as age, gender, weight, height, prior fracture history, parental fracture history, smoking status, alcohol intake, and glucocorticoid use to estimate the likelihood of developing osteoporosis-related fractures. By considering these factors, the OST aims to identify individuals who may benefit from further assessment, preventive measures, or treatment interventions to reduce the risk of fractures associated with osteoporosis. The OST provides a quantitative assessment of fracture risk, aiding healthcare professionals in making informed decisions regarding patient management and implementing strategies for fracture prevention. Early identification of individuals at higher risk of osteoporosis-related fractures allows for timely interventions, such as lifestyle modifications, calcium and vitamin D supplementation, pharmacotherapy, and fall prevention strategies, ultimately reducing the burden of osteoporotic fractures and improving overall bone health."
+    },
+    {
+      "name": "Chronic Kidney Disease (CKD) Risk Calculator",
+      "id": "chronic-kidney-disease-risk-calculator",
+      "resultText": "",
+      "description": "Chronic Kidney Disease (CKD) is a progressive condition characterized by the gradual loss of kidney function over time. The kidneys play a vital role in filtering waste and excess fluids from the blood, regulating electrolyte balance, and producing hormones that help control blood pressure and stimulate red blood cell production. CKD can develop due to various factors, including diabetes, hypertension, autoimmune diseases, genetic disorders, and certain medications. Early stages of CKD may not present noticeable symptoms, but as the disease progresses, individuals may experience symptoms such as fatigue, swelling, changes in urine output, and difficulty concentrating. Left untreated, CKD can lead to serious complications such as kidney failure, cardiovascular disease, and anemia. Management of CKD typically involves lifestyle modifications, medications to control underlying conditions, and, in advanced cases, dialysis or kidney transplant to replace lost kidney function. Regular monitoring and early intervention are crucial in slowing the progression of CKD and reducing the risk of complications."
+    },
+    {
+      "name": "Asthma Control Test (ACT)",
+      "id": "asthma-control-test",
+      "resultText": "",
+      "description": "The Asthma Control Test (ACT) is a self-administered questionnaire designed to assess the level of asthma control in individuals aged 12 years and older. It consists of five questions that evaluate the frequency and severity of asthma symptoms, as well as the impact of asthma on daily activities. The questions cover symptoms such as shortness of breath, wheezing, coughing, and nocturnal awakening due to asthma. Each question is scored on a scale of 1 to 5, with higher scores indicating better asthma control. The total score ranges from 5 to 25, with scores below 20 suggesting inadequate asthma control and the need for further evaluation and treatment adjustment. The ACT provides a quick and simple way for patients and healthcare providers to monitor asthma control over time, guiding treatment decisions and optimizing management strategies to improve quality of life and reduce the risk of asthma exacerbations."
+    },
+    {
+      "name": "Stroke Risk Score",
+      "id": "stroke-risk-score",
+      "resultText": "",
+      "description": "The Stroke Risk Score is a tool used to estimate an individual's risk of experiencing a stroke within a specified period, often 5 or 10 years. It utilizes a combination of demographic information and clinical risk factors to calculate the likelihood of stroke occurrence. These risk factors typically include age, gender, hypertension, diabetes mellitus, smoking status, prior history of stroke or transient ischemic attack (TIA), and presence of vascular disease. The score is calculated using a predetermined algorithm, assigning points to each risk factor based on its relative contribution to stroke risk. By inputting relevant data, healthcare professionals can use the Stroke Risk Score to identify high-risk individuals who may benefit from preventive interventions such as lifestyle modifications, medication therapy, or closer monitoring. Early identification of stroke risk allows for timely interventions to reduce the likelihood of stroke occurrence and its associated complications, improving patient outcomes and quality of life."
+    }
+  ],
+  "results": [
+    {
+      "id": "f76f4c72-8f18-46a9-a1b9-dc124caddfbc",
+      "calculatorId": "bmi",
+      "answers": [
+        {
+          "name": "age",
+          "value": "25"
+        },
+        {
+          "name": "gender",
+          "value": "male"
+        },
+        {
+          "name": "weight",
+          "value": "61"
+        },
+        {
+          "name": "height",
+          "value": "167"
+        }
+      ],
+      "result": "21.87"
+    },
+    {
+      "id": "bb593a84-5358-4687-b85b-4229ffb49838",
+      "calculatorId": "health-failure",
+      "answers": [
+        {
+          "name": "gender",
+          "value": "male"
+        },
+        {
+          "name": "age",
+          "value": "25"
+        },
+        {
+          "name": "heartRate",
+          "value": "80"
+        },
+        {
+          "name": "glucose",
+          "value": "150"
+        },
+        {
+          "name": "creatinine",
+          "value": "1"
+        },
+        {
+          "name": "albumin",
+          "value": "4"
+        },
+        {
+          "name": "systolic",
+          "value": "130"
+        },
+        {
+          "name": "lvh",
+          "value": "No"
+        },
+        {
+          "name": "cad",
+          "value": "No"
+        },
+        {
+          "name": "smoking",
+          "value": "Never"
+        }
+      ],
+      "result": 1
+    },
+    {
+      "id": "db15df19-7d48-46ce-a46f-727c0f749407",
+      "calculatorId": "atherosclerotic-cardiovascular-disease",
+      "answers": [
+        {
+          "name": "gender",
+          "value": "male"
+        },
+        {
+          "name": "age",
+          "value": "25"
+        },
+        {
+          "name": "totalChol",
+          "value": "150"
+        },
+        {
+          "name": "hdlChol",
+          "value": "40"
+        },
+        {
+          "name": "systolic",
+          "value": "130"
+        },
+        {
+          "name": "medHBP",
+          "value": "0"
+        },
+        {
+          "name": "diabetes",
+          "value": "0"
+        },
+        {
+          "name": "smoking",
+          "value": "Never"
+        }
+      ],
+      "result": 0.932001953125
+    }
+  ]
+}
