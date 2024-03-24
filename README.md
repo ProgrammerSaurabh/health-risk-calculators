@@ -18,7 +18,7 @@ Open [http://localhost:3001](http://localhost:3001) to view backend json.
 _App intro_
 
 ![](./public/images/form.JPG)
-_Quiz form_
+_Calculator form_
 
 ![](./public/images/result.JPG)
 _Result_
